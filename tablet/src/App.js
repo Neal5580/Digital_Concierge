@@ -4,7 +4,7 @@ import "./App.css";
 
 class App extends Component {
     componentDidMount() {
-        fetch("http://localhost:4000/")
+        fetch("http://localhost:3000/")
             .then(response => response.json())
             .then(data => console.log(data));
     }
@@ -23,7 +23,7 @@ class App extends Component {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Learn React From Neal Shen
+                        Learn React TABLETS
                     </a>
                 </header>
             </div>

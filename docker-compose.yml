@@ -5,18 +5,26 @@ services:
       context: ./server/
       dockerfile: Dockerfile.dev
     ports:
-      - "4000:4000"
-    volumes:
-      - /app/node_modules
-      - ./server:/app
-  client:
-    build: 
-      context: ./client/
-      dockerfile: Dockerfile.dev
-    ports:
       - "3000:3000"
     volumes:
       - /app/node_modules
-      - ./client:/app
-  
+      - ./server:/app
+  cms:
+    build: 
+      context: ./cms/
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4000:4000"
+    volumes:
+      - /app/node_modules
+      - ./cms:/app
+  tablet:
+    build: 
+      context: ./tablet/
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5000:5000"
+    volumes:
+      - /app/node_modules
+      - ./tablet:/app
    
