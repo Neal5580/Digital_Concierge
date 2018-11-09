@@ -25,7 +25,7 @@ const graphqlServer = new ApolloServer({
     resolvers,
     context: async ({ req }) =>
         req.user && {
-            user: await db.User.findById(req.user.sub)
+            user: await db.user.findById(req.user.sub)
         }
 });
 graphqlServer.applyMiddleware({ app });
@@ -44,7 +44,7 @@ app.get("/", (req, res) => {
 app.post("/login", async (req, res) => {
     const { email, password } = req.body;
 
-    const user = await db.User.findOne({
+    const user = await db.user.findOne({
         where: {
             email: email
         }
