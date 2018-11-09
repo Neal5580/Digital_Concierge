@@ -6,6 +6,7 @@ import { ApolloServer } from "apollo-server-express";
 import expressJwt from "express-jwt";
 import resolvers from "./resolvers";
 import schemas from "./schemas";
+import jwt from "jsonwebtoken";
 
 const port = 3000;
 const jwtSecret = Buffer.from("Zn8Q5tyZ/G1MHltc4F/gTkVJMlrbKiZt", "base64");

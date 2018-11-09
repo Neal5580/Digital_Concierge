@@ -7,7 +7,9 @@ export default {
             return await db.user.findById(id);
         },
 
-        users: async () => {
+        users: async (root, input, { user }) => {
+            console.log(user);
+
             return await db.user.findAll();
         }
     },

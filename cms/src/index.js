@@ -1,12 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./components/App";
+import { ApolloProvider, Query } from "react-apollo";
+import { InMemoryCache } from "apollo-boost";
+import { ApolloClient } from "apollo-client";
+import { createUploadLink } from "apollo-upload-client";
+import { setContext } from "apollo-link-context";
+import { getAccessToken, isLoggedIn } from "./auth/auth";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const authLink = setContext((_, { headers }) => {
+    return {
+        headers: {
+            ...headers,
+            authorization: isLoggedIn() ? `Bearer ${getAccessToken()}` : ""
+        }
+    };
+});
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const client = new ApolloClient({
+    cache: new InMemoryCache(),
+    link: authLink.concat(
+        createUploadLink({
+            uri: "http://localhost:3000/graphql",
+            cretentials: "include"
+        })
+    )
+});
+
+ReactDOM.render(
+    <ApolloProvider client={client}>
+        <App />
+    </ApolloProvider>,
+    document.getElementById("root")
+);

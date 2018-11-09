@@ -17,5 +17,6 @@ export default gql`
         active: Boolean
         role: Role
         createdAt: DateTime
+        updatedAt: DateTime
     }
 `;
