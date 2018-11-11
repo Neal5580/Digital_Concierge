@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
-import { ApolloProvider, Query } from "react-apollo";
+import { ApolloProvider } from "react-apollo";
 import { InMemoryCache } from "apollo-boost";
 import { ApolloClient } from "apollo-client";
 import { createUploadLink } from "apollo-upload-client";

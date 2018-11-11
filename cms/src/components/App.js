@@ -5,8 +5,11 @@ import {
     Switch,
     Redirect
 } from "react-router-dom";
-import { Login } from "./auth/Login";
-import { Welcome } from "./home/Welcome";
+import Login from "./auth/Login";
+import Welcome from "./home/Welcome";
+import Home from "./home/Home";
+import PrivateRoute from "./auth/PrivateRoute";
+
 import { isLoggedIn, logout } from "../auth/auth";
 import "./App.css";
 
@@ -39,34 +42,27 @@ class App extends Component {
                 <div>
                     <section>
                         <div>
-                            <Switch>
-                                <Route
-                                    exact
-                                    path="/"
-                                    render={() => (
-                                        <Login
-                                            onLogin={this.handleLogin.bind(
-                                                this
-                                            )}
-                                        />
-                                    )}
-                                />
+                            <Route
+                                exact
+                                path="/"
+                                render={() => (
+                                    <Login
+                                        onLogin={this.handleLogin.bind(this)}
+                                    />
+                                )}
+                            />
 
-                                <Route
-                                    path="/login"
-                                    render={() => (
-                                        <Login
-                                            onLogin={this.handleLogin.bind(
-                                                this
-                                            )}
-                                        />
-                                    )}
-                                />
-                                <PrivateRoute
-                                    path="/welcome"
-                                    component={Welcome}
-                                />
-                            </Switch>
+                            <Route
+                                path="/login"
+                                render={() => (
+                                    <Login
+                                        onLogin={this.handleLogin.bind(this)}
+                                    />
+                                )}
+                            />
+                            <PrivateRoute path="/welcome" component={Welcome} />
+
+                            <PrivateRoute path="/tablet" component={Home} />
                         </div>
                     </section>
                 </div>
@@ -76,23 +72,3 @@ class App extends Component {
 }
 
 export default App;
-
-function PrivateRoute({ component: Component, ...rest }) {
-    return (
-        <Route
-            {...rest}
-            render={props =>
-                isLoggedIn() ? (
-                    <Component {...props} />
-                ) : (
-                    <Redirect
-                        to={{
-                            pathname: "/login",
-                            state: { from: props.location }
-                        }}
-                    />
-                )
-            }
-        />
-    );
-}

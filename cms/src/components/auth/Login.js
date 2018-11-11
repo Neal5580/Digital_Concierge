@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { login } from "../../auth/auth";
 
-export class Login extends Component {
+class Login extends Component {
     constructor(props) {
         super(props);
         this.state = { email: "", password: "", error: false };
@@ -69,3 +69,5 @@ export class Login extends Component {
         );
     }
 }
+
+export default Login;

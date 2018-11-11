@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Query } from "react-apollo";
 import { getCurrentUserQuery } from "../../data/query";
 
-export class Welcome extends Component {
+class Welcome extends Component {
     render() {
         return (
             <div>
@@ -25,3 +25,5 @@ export class Welcome extends Component {
         );
     }
 }
+
+export default Welcome;
