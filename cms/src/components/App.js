@@ -9,7 +9,6 @@ import Login from "./auth/Login";
 import Welcome from "./home/Welcome";
 import Home from "./home/Home";
 import PrivateRoute from "./auth/PrivateRoute";
-
 import { isLoggedIn, logout } from "../auth/auth";
 import "./App.css";
 
@@ -61,7 +60,6 @@ class App extends Component {
                                 )}
                             />
                             <PrivateRoute path="/welcome" component={Welcome} />
-
                             <PrivateRoute path="/tablet" component={Home} />
                             <PrivateRoute
                                 path="/touchscreen"

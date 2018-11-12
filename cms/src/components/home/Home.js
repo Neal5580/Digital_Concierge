@@ -4,7 +4,6 @@ import Sidebar from "../layout/Sidebar";
 import Tablet from "../tablet/Tablet";
 import TabletList from "../tablet/TabletList";
 import Touchscreen from "../touchscreen/Touchscreen";
-
 import PrivateRoute from "../auth/PrivateRoute";
 
 const routes = [
