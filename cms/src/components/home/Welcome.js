@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import { getCurrentUserQuery } from "../../data/query";
+import { Link } from "react-router-dom";
 
 class Welcome extends Component {
     render() {
@@ -16,7 +17,12 @@ class Welcome extends Component {
                         return (
                             <div>
                                 <h3>{user.name}</h3>
-                                <p>Touchscreen OR Tablet</p>
+
+                                <p>
+                                    <Link to="/touchscreen">Touchscreen</Link>
+                                    OR
+                                    <Link to="/tablet">Tablet</Link>
+                                </p>
                             </div>
                         );
                     }}

@@ -63,6 +63,10 @@ class App extends Component {
                             <PrivateRoute path="/welcome" component={Welcome} />
 
                             <PrivateRoute path="/tablet" component={Home} />
+                            <PrivateRoute
+                                path="/touchscreen"
+                                component={Home}
+                            />
                         </div>
                     </section>
                 </div>
