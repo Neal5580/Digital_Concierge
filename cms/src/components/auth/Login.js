@@ -2,11 +2,17 @@ import React, { Component } from "react";
 import { login } from "../../auth/auth";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import _ from "lodash";
 
 class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = { email: "", password: "", error: false };
+        this.state = {
+            email: "",
+            password: "",
+            error: false,
+            errorMessage: ""
+        };
     }
 
     handleChange(event) {
@@ -17,17 +23,28 @@ class Login extends Component {
     handleClick(event) {
         event.preventDefault();
         const { email, password } = this.state;
-        login(email, password).then(ok => {
-            if (ok) {
-                this.props.onLogin();
-            } else {
-                this.setState({ error: true });
-            }
-        });
+
+        if (!_.isEmpty(email) && !_.isEmpty(password)) {
+            login(email, password).then(ok => {
+                if (ok) {
+                    this.props.onLogin();
+                } else {
+                    this.setState({
+                        error: true,
+                        errorMessage: "Login Failed! Please try again!"
+                    });
+                }
+            });
+        } else {
+            this.setState({
+                error: true,
+                errorMessage: "Please enter email & password!"
+            });
+        }
     }
 
     render() {
-        const { email, password, error } = this.state;
+        const { email, password, error, errorMessage } = this.state;
         return (
             <div
                 style={{
@@ -43,15 +60,17 @@ class Login extends Component {
             >
                 <div
                     style={{
-                        backgroundColor: "green",
+                        backgroundImage:
+                            "url(https://s3-ap-southeast-2.amazonaws.com/digitalconcierge/cms_assets/wallpaper_login_small.jpg )",
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "cover",
                         width: "60vw"
                     }}
-                >
-                    PLACEHOLDER
-                </div>
+                />
+
                 <div
                     style={{
-                        backgroundColor: "red",
                         width: "40vw"
                     }}
                 >
@@ -68,64 +87,104 @@ class Login extends Component {
                                 height: "100vh"
                             }}
                         >
-                            {/*<div className="field">
-                                <label className="label">Email</label>
-                                <div className="control">
-                                    <input
-                                        className="input"
-                                        type="text"
-                                        name="email"
-                                        value={email}
-                                        onChange={this.handleChange.bind(this)}
-                                    />
-                                </div>
-                            </div>
-                            <div className="field">
-                                <label className="label">Password</label>
-                                <div className="control">
-                                    <input
-                                        className="input"
-                                        type="password"
-                                        name="password"
-                                        value={password}
-                                        onChange={this.handleChange.bind(this)}
-                                    />
-                                </div>
-                            </div>
-                            <div className="field">
-                                <p className="help is-danger">
-                                    {error && "Invalid credentials"}
-                                </p>
-                                <div className="control">
-                                    <button
-                                        className="button is-link"
-                                        onClick={this.handleClick.bind(this)}
-                                    >
-                                        Login
-                                    </button>
-                                </div>
-                            </div>*/}
-                            <div
-                                style={{
-                                    backgroundColor: "white",
-                                    width: "50%",
-                                    textAlign: "center"
-                                }}
-                            >
-                                LOGO PLACEHOLDER
-                            </div>
-
                             <div
                                 style={{
                                     backgroundColor: "white",
                                     width: "50%"
                                 }}
                             >
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        flexDirection: "row",
+                                        flexWrap: "nowrap",
+                                        justifyContent: "flex-start",
+                                        alignItems: "center",
+                                        alignContent: "center"
+                                    }}
+                                >
+                                    <div
+                                        style={{
+                                            width: "50%"
+                                        }}
+                                    >
+                                        <img
+                                            style={{ height: "3vw" }}
+                                            src="https://s3-ap-southeast-2.amazonaws.com/digitalconcierge/cms_assets/logo_login.png"
+                                        />
+                                    </div>
+                                    <div
+                                        style={{
+                                            width: "50%",
+                                            height: "100%",
+                                            textAlign: "left",
+                                            borderLeft:
+                                                " 2px solid rgb(124,126,162)"
+                                        }}
+                                    >
+                                        <p
+                                            style={{
+                                                marginLeft: "0.5vw",
+                                                color: "rgb(124,126,162)",
+                                                fontSize: "1vw",
+                                                textTransform: "uppercase"
+                                            }}
+                                        >
+                                            CONTENT MANAGEMENT SYSTEM
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                style={{
+                                    width: "50%",
+                                    textAlign: "center",
+                                    marginTop: "2vh"
+                                }}
+                            >
+                                {error ? (
+                                    <p
+                                        style={{
+                                            color: "red",
+                                            fontSize: "1.1vw",
+                                            textTransform: "uppercase"
+                                        }}
+                                    >
+                                        {errorMessage}
+                                    </p>
+                                ) : (
+                                    <React.Fragment>
+                                        <p
+                                            style={{
+                                                color: "rgb(166,167,173)",
+                                                fontSize: "1.2vw"
+                                            }}
+                                        >
+                                            Welcome back!
+                                        </p>
+                                        <p
+                                            style={{
+                                                color: "rgb(166,167,173)",
+                                                fontSize: "1.2vw"
+                                            }}
+                                        >
+                                            Please login to your account
+                                        </p>
+                                    </React.Fragment>
+                                )}
+                            </div>
+                            <div
+                                style={{
+                                    width: "50%"
+                                }}
+                            >
                                 <TextField
                                     id="standard-name"
-                                    label="Username"
+                                    label="Email"
                                     margin="normal"
                                     fullWidth={true}
+                                    value={email}
+                                    name="email"
                                     onChange={this.handleChange.bind(this)}
                                 />
                             </div>
@@ -140,6 +199,8 @@ class Login extends Component {
                                     label="Password"
                                     type="password"
                                     margin="normal"
+                                    value={password}
+                                    name="password"
                                     fullWidth={true}
                                     onChange={this.handleChange.bind(this)}
                                 />
@@ -152,8 +213,14 @@ class Login extends Component {
                             >
                                 <Button
                                     variant="contained"
+                                    type="submit"
                                     color="primary"
-                                    style={{ width: "100%", color: "white" }}
+                                    style={{
+                                        width: "100%",
+                                        color: "white",
+                                        fontSize: "1.1vw",
+                                        backgroundColor: "#272b67"
+                                    }}
                                     onClick={this.handleClick.bind(this)}
                                 >
                                     Login
