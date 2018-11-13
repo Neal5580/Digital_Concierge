@@ -19,6 +19,7 @@ export default gql`
         has_tablet: Boolean
         has_touchscreen: Boolean
         role: Role
+        avatar: String
         createdAt: DateTime
         updatedAt: DateTime
     }

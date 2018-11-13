@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Menu from "../layout/Menu";
+import Header from "../layout/Header";
 import Sidebar from "../layout/Sidebar";
 import Tablet from "../tablet/Tablet";
 import TabletList from "../tablet/TabletList";
@@ -11,26 +11,26 @@ const routes = [
         path: "/tablet",
         exact: true,
         sidebar: Sidebar,
-        menu: Menu,
+        header: Header,
         main: Tablet
     },
     {
         path: "/tablet/home",
         sidebar: Sidebar,
-        menu: Menu,
+        header: Header,
         main: Tablet
     },
     {
         path: "/tablet/list",
         sidebar: Sidebar,
-        menu: Menu,
+        header: Header,
         main: TabletList
     },
     {
         path: "/touchscreen",
         exact: true,
         sidebar: Sidebar,
-        menu: Menu,
+        header: Header,
         main: Touchscreen
     }
 ];
@@ -55,7 +55,7 @@ class Home extends Component {
                             key={index}
                             path={route.path}
                             exact={route.exact}
-                            component={route.menu}
+                            component={route.header}
                         />
                     ))}
                 </div>

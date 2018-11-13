@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import {
-    BrowserRouter as Router,
-    Route,
-    Switch,
-    Redirect
-} from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Login from "./auth/Login";
 import Welcome from "./home/Welcome";
 import Home from "./home/Home";
@@ -30,9 +25,9 @@ class App extends Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:3000/")
+        /* fetch("http://localhost:3000/")
             .then(response => response.json())
-            .then(data => console.log(data));
+            .then(data => console.log(data));*/
     }
 
     render() {

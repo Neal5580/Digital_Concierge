@@ -12,6 +12,7 @@ export const getSelectedUserQuery = gql`
             has_touchscreen
             createdAt
             updatedAt
+            avatar
             role {
                 id
                 name
@@ -30,6 +31,7 @@ export const getCurrentUserQuery = gql`
             active
             has_tablet
             has_touchscreen
+            avatar
             createdAt
             updatedAt
             role {

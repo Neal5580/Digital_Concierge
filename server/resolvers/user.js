@@ -1,11 +1,8 @@
 import db from "../models";
-import { GraphQLScalarType } from "graphql"; // ES6
 
 export default {
     Query: {
         getCurrentUser: async (root, input, { user }) => {
-            console.log(user);
-
             //if user is not logged in
             if (!user) {
                 throw new AuthenticationError("Unauthorized");
@@ -14,8 +11,6 @@ export default {
             return user;
         },
         user: async (root, { id }, { user }) => {
-            console.log(user);
-
             //if user is not logged in
             if (!user) {
                 throw new AuthenticationError("Unauthorized");
@@ -29,8 +24,6 @@ export default {
             return await db.user.findById(id);
         },
         users: async (root, input, { user }) => {
-            console.log(user);
-
             //if user is not logged in
             if (!user) {
                 throw new AuthenticationError("Unauthorized");

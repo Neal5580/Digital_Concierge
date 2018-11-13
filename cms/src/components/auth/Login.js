@@ -3,6 +3,7 @@ import { login } from "../../auth/auth";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import _ from "lodash";
+import { COLOR_JBG_PURPLE } from "../../utils/Constants";
 
 class Login extends Component {
     constructor(props) {
@@ -109,6 +110,7 @@ class Login extends Component {
                                         }}
                                     >
                                         <img
+                                            alt="logo"
                                             style={{ height: "3vw" }}
                                             src="https://s3-ap-southeast-2.amazonaws.com/digitalconcierge/cms_assets/logo_login.png"
                                         />
@@ -119,7 +121,7 @@ class Login extends Component {
                                             height: "100%",
                                             textAlign: "left",
                                             borderLeft:
-                                                " 2px solid rgb(124,126,162)"
+                                                "2px solid rgb(124,126,162)"
                                         }}
                                     >
                                         <p
@@ -219,7 +221,7 @@ class Login extends Component {
                                         width: "100%",
                                         color: "white",
                                         fontSize: "1.1vw",
-                                        backgroundColor: "#272b67"
+                                        backgroundColor: COLOR_JBG_PURPLE
                                     }}
                                     onClick={this.handleClick.bind(this)}
                                 >
