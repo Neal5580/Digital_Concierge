@@ -4,6 +4,7 @@ export default gql`
     scalar DateTime
 
     extend type Query {
+        getCurrentUser: User
         user(id: ID!): User
         users: [User]
     }
@@ -15,6 +16,8 @@ export default gql`
         password: String
         has_parent_category: Boolean
         active: Boolean
+        has_tablet: Boolean
+        has_touchscreen: Boolean
         role: Role
         createdAt: DateTime
         updatedAt: DateTime

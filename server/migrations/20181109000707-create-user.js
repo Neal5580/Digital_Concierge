@@ -43,6 +43,20 @@ module.exports = {
                     notEmpty: true
                 }
             },
+            has_tablet: {
+                type: Sequelize.BOOLEAN,
+                allowNull: false,
+                validate: {
+                    notEmpty: true
+                }
+            },
+            has_touchscreen: {
+                type: Sequelize.BOOLEAN,
+                allowNull: false,
+                validate: {
+                    notEmpty: true
+                }
+            },
             createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE,

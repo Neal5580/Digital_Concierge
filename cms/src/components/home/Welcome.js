@@ -12,8 +12,9 @@ class Welcome extends Component {
                     {({ loading, error, data }) => {
                         if (loading) return "loading...";
                         if (error) return `Error! ${error.message}`;
+                        console.log(data);
 
-                        const { user } = data;
+                        const { getCurrentUser: user } = data;
                         return (
                             <div>
                                 <h3>{user.name}</h3>

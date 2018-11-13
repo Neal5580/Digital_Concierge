@@ -11,6 +11,8 @@ module.exports = {
                     password: "neal1234",
                     has_parent_category: true,
                     active: true,
+                    has_tablet: true,
+                    has_touchscreen: true,
                     roleId: 1
                 },
                 {
@@ -19,6 +21,8 @@ module.exports = {
                     password: "holiday",
                     has_parent_category: true,
                     active: true,
+                    has_tablet: true,
+                    has_touchscreen: true,
                     roleId: 2
                 }
             ],
