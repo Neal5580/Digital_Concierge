@@ -1,23 +1,9 @@
 "use strict";
 module.exports = (sequelize, DataTypes) => {
-    const user = sequelize.define(
-        "user",
+    const venue = sequelize.define(
+        "venue",
         {
             name: {
-                type: DataTypes.STRING,
-                allowNull: false,
-                validate: {
-                    notEmpty: true
-                }
-            },
-            email: {
-                type: DataTypes.STRING,
-                allowNull: false,
-                validate: {
-                    notEmpty: true
-                }
-            },
-            password: {
                 type: DataTypes.STRING,
                 allowNull: false,
                 validate: {
@@ -48,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
                 },
                 defaultValue: false
             },
-            has_touchscreen: {
+            has_touchscren: {
                 type: DataTypes.BOOLEAN,
                 allowNull: false,
                 validate: {
@@ -56,23 +42,20 @@ module.exports = (sequelize, DataTypes) => {
                 },
                 defaultValue: false
             },
-            avatar: {
-                type: DataTypes.STRING,
+            number_of_users: {
+                type: DataTypes.INTEGER,
                 allowNull: false,
                 validate: {
                     notEmpty: true
-                }
+                },
+                defaultValue: 5
             }
         },
         {}
     );
-    user.associate = function(models) {
-        models.user.belongsTo(models.role, {
-            foreignKey: { allowNull: false }
-        });
-        user.belongsTo(models.venue, {
-            foreignKey: { allowNull: false }
-        });
+    venue.associate = function(models) {
+        venue.hasMany(models.user);
+        venue.belongsToMany(models.role, { through: "roles_venues" });
     };
-    return user;
+    return venue;
 };

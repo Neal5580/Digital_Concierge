@@ -3,13 +3,19 @@
 module.exports = {
     up: (queryInterface, Sequelize) => {
         return queryInterface.bulkInsert(
-            "roles",
+            "permissions",
             [
                 {
-                    name: "admin"
+                    name: "CREATE_PARENT_CATEGORY"
                 },
                 {
-                    name: "venue"
+                    name: "READ_PARENT_CATEGORY"
+                },
+                {
+                    name: "UPDATE_PARENT_CATEGORY"
+                },
+                {
+                    name: "DELETE_PARENT_CATEGORY"
                 }
             ],
             {}

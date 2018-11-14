@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        return queryInterface.createTable("users", {
+        return queryInterface.createTable("venues", {
             id: {
                 allowNull: false,
                 autoIncrement: true,
@@ -15,15 +15,8 @@ module.exports = {
                     notEmpty: true
                 }
             },
-            email: {
-                type: Sequelize.STRING,
-                allowNull: false,
-                validate: {
-                    notEmpty: true
-                }
-            },
-            password: {
-                type: Sequelize.STRING,
+            has_parent_category: {
+                type: Sequelize.BOOLEAN,
                 allowNull: false,
                 validate: {
                     notEmpty: true
@@ -36,8 +29,22 @@ module.exports = {
                     notEmpty: true
                 }
             },
-            avatar: {
-                type: Sequelize.STRING,
+            has_tablet: {
+                type: Sequelize.BOOLEAN,
+                allowNull: false,
+                validate: {
+                    notEmpty: true
+                }
+            },
+            has_touchscren: {
+                type: Sequelize.BOOLEAN,
+                allowNull: false,
+                validate: {
+                    notEmpty: true
+                }
+            },
+            number_of_users: {
+                type: Sequelize.INTEGER,
                 allowNull: false,
                 validate: {
                     notEmpty: true
@@ -56,6 +63,6 @@ module.exports = {
         });
     },
     down: (queryInterface, Sequelize) => {
-        return queryInterface.dropTable("users");
+        return queryInterface.dropTable("venues");
     }
 };

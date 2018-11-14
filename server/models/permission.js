@@ -1,7 +1,7 @@
 "use strict";
 module.exports = (sequelize, DataTypes) => {
-    const role = sequelize.define(
-        "role",
+    const permission = sequelize.define(
+        "permission",
         {
             name: {
                 type: DataTypes.STRING,
@@ -13,10 +13,8 @@ module.exports = (sequelize, DataTypes) => {
         },
         {}
     );
-    role.associate = function(models) {
-        role.belongsToMany(models.permission, { through: "roles_permissions" });
-        role.hasMany(models.user);
-        role.belongsToMany(models.venue, { through: "roles_venues" });
+    permission.associate = function(models) {
+        permission.belongsToMany(models.role, { through: "roles_permissions" });
     };
-    return role;
+    return permission;
 };

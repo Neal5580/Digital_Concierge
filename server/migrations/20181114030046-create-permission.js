@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        return queryInterface.createTable("roles", {
+        return queryInterface.createTable("permissions", {
             id: {
                 allowNull: false,
                 autoIncrement: true,
@@ -14,14 +14,6 @@ module.exports = {
                 validate: {
                     notEmpty: true
                 }
-            },
-            is_admin: {
-                type: Sequelize.BOOLEAN,
-                allowNull: false,
-                validate: {
-                    notEmpty: true
-                },
-                defaultValue: false
             },
             createdAt: {
                 allowNull: false,
@@ -36,6 +28,6 @@ module.exports = {
         });
     },
     down: (queryInterface, Sequelize) => {
-        return queryInterface.dropTable("roles");
+        return queryInterface.dropTable("permissions");
     }
 };
