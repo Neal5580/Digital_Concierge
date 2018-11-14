@@ -9,5 +9,6 @@ export default gql`
     type Permission {
         id: ID!
         name: String
+        roles: Role
     }
 `;

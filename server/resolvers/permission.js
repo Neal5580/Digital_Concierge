@@ -13,12 +13,15 @@ export default {
         }
     },
     Permission: {
-        /*permissions: async role => {
-            return await db.user.findAll({
-                where: {
-                    roleId: role.id
-                }
+        roles: async permission => {
+            return await db.role.findAll({
+                include: [
+                    {
+                        model: db.permission,
+                        where: { id: permission.id }
+                    }
+                ]
             });
-        }*/
+        }
     }
 };

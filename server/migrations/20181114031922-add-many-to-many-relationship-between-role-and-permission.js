@@ -13,18 +13,7 @@ module.exports = {
                 type: Sequelize.DATE,
                 defaultValue: Sequelize.literal("NOW()")
             },
-            permissionId: {
-                type: Sequelize.INTEGER,
-                primaryKey: true,
 
-                /**
-                 * ADD FK , But not sure its working or not
-                 */
-                references: {
-                    model: "permissions",
-                    key: "id"
-                }
-            },
             roleId: {
                 type: Sequelize.INTEGER,
                 primaryKey: true,
@@ -34,6 +23,18 @@ module.exports = {
                  */
                 references: {
                     model: "roles",
+                    key: "id"
+                }
+            },
+            permissionId: {
+                type: Sequelize.INTEGER,
+                primaryKey: true,
+
+                /**
+                 * ADD FK , But not sure its working or not
+                 */
+                references: {
+                    model: "permissions",
                     key: "id"
                 }
             }
