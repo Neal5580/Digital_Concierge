@@ -16,10 +16,6 @@ module.exports = {
             venueId: {
                 type: Sequelize.INTEGER,
                 primaryKey: true,
-
-                /**
-                 * ADD FK , But not sure its working or not
-                 */
                 references: {
                     model: "venues",
                     key: "id"
@@ -28,10 +24,6 @@ module.exports = {
             roleId: {
                 type: Sequelize.INTEGER,
                 primaryKey: true,
-
-                /**
-                 * ADD FK , But not sure its working or not
-                 */
                 references: {
                     model: "roles",
                     key: "id"

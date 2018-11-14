@@ -2,11 +2,19 @@ import db from "../models";
 
 export default {
     Query: {
-        role: async (root, { id }) => {
+        role: async (root, { id }, { user }) => {
+            //if user is not logged in
+            if (!user) {
+                throw new AuthenticationError("Unauthorized");
+            }
             return await db.role.findById(id);
         },
 
-        roles: async () => {
+        roles: async (root, input, { user }) => {
+            //if user is not logged in
+            if (!user) {
+                throw new AuthenticationError("Unauthorized");
+            }
             return await db.role.findAll();
         }
     },

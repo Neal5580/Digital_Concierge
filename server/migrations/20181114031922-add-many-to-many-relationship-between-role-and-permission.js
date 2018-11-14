@@ -17,10 +17,6 @@ module.exports = {
             roleId: {
                 type: Sequelize.INTEGER,
                 primaryKey: true,
-
-                /**
-                 * ADD FK , But not sure its working or not
-                 */
                 references: {
                     model: "roles",
                     key: "id"
@@ -29,10 +25,6 @@ module.exports = {
             permissionId: {
                 type: Sequelize.INTEGER,
                 primaryKey: true,
-
-                /**
-                 * ADD FK , But not sure its working or not
-                 */
                 references: {
                     model: "permissions",
                     key: "id"
