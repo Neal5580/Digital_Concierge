@@ -24,14 +24,6 @@ module.exports = (sequelize, DataTypes) => {
                     notEmpty: true
                 }
             },
-            has_parent_category: {
-                type: DataTypes.BOOLEAN,
-                allowNull: false,
-                validate: {
-                    notEmpty: true
-                },
-                defaultValue: false
-            },
             active: {
                 type: DataTypes.BOOLEAN,
                 allowNull: false,
@@ -39,22 +31,6 @@ module.exports = (sequelize, DataTypes) => {
                     notEmpty: true
                 },
                 defaultValue: true
-            },
-            has_tablet: {
-                type: DataTypes.BOOLEAN,
-                allowNull: false,
-                validate: {
-                    notEmpty: true
-                },
-                defaultValue: false
-            },
-            has_touchscreen: {
-                type: DataTypes.BOOLEAN,
-                allowNull: false,
-                validate: {
-                    notEmpty: true
-                },
-                defaultValue: false
             },
             avatar: {
                 type: DataTypes.STRING,

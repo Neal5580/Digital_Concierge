@@ -14,10 +14,7 @@ export default gql`
         name: String
         email: String
         password: String
-        has_parent_category: Boolean
         active: Boolean
-        has_tablet: Boolean
-        has_touchscreen: Boolean
         role: Role
         avatar: String
         createdAt: DateTime

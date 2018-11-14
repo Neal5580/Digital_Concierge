@@ -17,6 +17,16 @@ export default {
                     roleId: role.id
                 }
             });
+        },
+        permissions: async role => {
+            return await db.permission.findAll({
+                include: [
+                    {
+                        model: db.role,
+                        where: { id: role.id }
+                    }
+                ]
+            });
         }
     }
 };

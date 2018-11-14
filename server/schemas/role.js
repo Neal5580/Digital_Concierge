@@ -9,6 +9,8 @@ export default gql`
     type Role {
         id: ID!
         name: String
+        is_admin: Boolean
         users: [User]
+        permissions: [Permission]
     }
 `;
