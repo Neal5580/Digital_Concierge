@@ -38,18 +38,8 @@ const routes = [
 class Home extends Component {
     render() {
         return (
-            <div style={{ display: "flex" }}>
-                <div style={{ flex: 1, padding: "10px" }}>
-                    {routes.map((route, index) => (
-                        <PrivateRoute
-                            key={index}
-                            path={route.path}
-                            exact={route.exact}
-                            component={route.sidebar}
-                        />
-                    ))}
-                </div>
-                <div style={{ flex: 1, padding: "10px" }}>
+            <div>
+                <div>
                     {routes.map((route, index) => (
                         <PrivateRoute
                             key={index}
@@ -59,7 +49,21 @@ class Home extends Component {
                         />
                     ))}
                 </div>
-                <div style={{ flex: 1, padding: "10px" }}>
+                <div
+                    style={{
+                        paddingTop: "80px "
+                    }}
+                >
+                    {routes.map((route, index) => (
+                        <PrivateRoute
+                            key={index}
+                            path={route.path}
+                            exact={route.exact}
+                            component={route.sidebar}
+                        />
+                    ))}
+                </div>
+                <div>
                     {routes.map((route, index) => (
                         <PrivateRoute
                             key={index}

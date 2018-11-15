@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { login } from "../../auth/auth";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import _ from "lodash";
+import { isEmpty } from "lodash";
 import { COLOR_JBG_PURPLE } from "../../utils/Constants";
 
 class Login extends Component {
@@ -25,7 +25,7 @@ class Login extends Component {
         event.preventDefault();
         const { email, password } = this.state;
 
-        if (!_.isEmpty(email) && !_.isEmpty(password)) {
+        if (!isEmpty(email) && !isEmpty(password)) {
             login(email, password).then(ok => {
                 if (ok) {
                     this.props.onLogin();

@@ -5,7 +5,7 @@ class Tablet extends Component {
     render() {
         return (
             <div>
-                <h1>Tablet</h1>
+                <h1>Tablet Homepage</h1>
                 <Link to="/tablet/list">List</Link>
             </div>
         );

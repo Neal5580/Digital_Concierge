@@ -28,7 +28,8 @@ class Header extends Component {
                     justifyContent: "flex-start",
                     alignItems: "center",
                     alignContent: "center",
-                    fontSize: "1.2em"
+                    fontSize: "1.2em",
+                    zIndex: "1"
                 }}
             >
                 <div
