@@ -14,7 +14,6 @@ export const getSelectedUserQuery = gql`
                 name
                 is_admin
                 permissions {
-                    id
                     name
                 }
             }
@@ -45,7 +44,6 @@ export const getCurrentUserQuery = gql`
                 name
                 is_admin
                 permissions {
-                    id
                     name
                 }
             }

@@ -90,7 +90,6 @@ class Login extends Component {
                         >
                             <div
                                 style={{
-                                    backgroundColor: "white",
                                     width: "50%"
                                 }}
                             >
@@ -136,97 +135,82 @@ class Login extends Component {
                                         </p>
                                     </div>
                                 </div>
-                            </div>
-                            <div
-                                style={{
-                                    width: "50%",
-                                    textAlign: "center",
-                                    marginTop: "2vh"
-                                }}
-                            >
-                                {error ? (
-                                    <p
-                                        style={{
-                                            color: "red",
-                                            fontSize: "1.1vw",
-                                            textTransform: "uppercase"
-                                        }}
-                                    >
-                                        {errorMessage}
-                                    </p>
-                                ) : (
-                                    <React.Fragment>
-                                        <p
-                                            style={{
-                                                color: "rgb(166,167,173)",
-                                                fontSize: "1.2vw"
-                                            }}
-                                        >
-                                            Welcome back!
-                                        </p>
-                                        <p
-                                            style={{
-                                                color: "rgb(166,167,173)",
-                                                fontSize: "1.2vw"
-                                            }}
-                                        >
-                                            Please login to your account
-                                        </p>
-                                    </React.Fragment>
-                                )}
-                            </div>
-                            <div
-                                style={{
-                                    width: "50%"
-                                }}
-                            >
-                                <TextField
-                                    id="standard-name"
-                                    label="Email"
-                                    margin="normal"
-                                    fullWidth={true}
-                                    value={email}
-                                    name="email"
-                                    onChange={this.handleChange.bind(this)}
-                                />
-                            </div>
-                            <div
-                                style={{
-                                    backgroundColor: "white",
-                                    width: "50%"
-                                }}
-                            >
-                                <TextField
-                                    id="standard-password-input"
-                                    label="Password"
-                                    type="password"
-                                    margin="normal"
-                                    value={password}
-                                    name="password"
-                                    fullWidth={true}
-                                    onChange={this.handleChange.bind(this)}
-                                />
-                            </div>
-                            <div
-                                style={{
-                                    backgroundColor: "white",
-                                    width: "50%"
-                                }}
-                            >
-                                <Button
-                                    variant="contained"
-                                    type="submit"
-                                    color="primary"
+                                <div
                                     style={{
-                                        width: "100%",
-                                        color: "white",
-                                        fontSize: "1.1vw",
-                                        backgroundColor: COLOR_JBG_PURPLE
+                                        textAlign: "center",
+                                        marginTop: "2vh"
                                     }}
-                                    onClick={this.handleClick.bind(this)}
                                 >
-                                    Login
-                                </Button>
+                                    {error ? (
+                                        <p
+                                            style={{
+                                                color: "red",
+                                                fontSize: "1.1vw",
+                                                textTransform: "uppercase"
+                                            }}
+                                        >
+                                            {errorMessage}
+                                        </p>
+                                    ) : (
+                                        <React.Fragment>
+                                            <p
+                                                style={{
+                                                    color: "rgb(166,167,173)",
+                                                    fontSize: "1.2vw"
+                                                }}
+                                            >
+                                                Welcome back!
+                                            </p>
+                                            <p
+                                                style={{
+                                                    color: "rgb(166,167,173)",
+                                                    fontSize: "1.2vw"
+                                                }}
+                                            >
+                                                Please login to your account
+                                            </p>
+                                        </React.Fragment>
+                                    )}
+                                </div>
+                                <div>
+                                    <TextField
+                                        id="standard-name"
+                                        label="Email"
+                                        margin="normal"
+                                        fullWidth={true}
+                                        value={email}
+                                        name="email"
+                                        onChange={this.handleChange.bind(this)}
+                                    />
+                                </div>
+                                <div>
+                                    <TextField
+                                        id="standard-password-input"
+                                        label="Password"
+                                        type="password"
+                                        margin="normal"
+                                        value={password}
+                                        name="password"
+                                        fullWidth={true}
+                                        onChange={this.handleChange.bind(this)}
+                                    />
+                                </div>
+                                <div>
+                                    <Button
+                                        variant="contained"
+                                        type="submit"
+                                        color="primary"
+                                        style={{
+                                            width: "100%",
+                                            color: "white",
+                                            fontSize: "1.1vw",
+                                            backgroundColor: COLOR_JBG_PURPLE
+                                        }}
+                                        onClick={this.handleClick.bind(this)}
+                                    >
+                                        Login
+                                    </Button>
+                                </div>
                             </div>
                         </div>
                     </form>
