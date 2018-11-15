@@ -28,7 +28,7 @@ class Welcome extends Component {
                     const { getCurrentUser: user } = data;
                     return (
                         <div>
-                            <Header user={user} />
+                            <Header />
                             <div
                                 style={{
                                     paddingTop: "80px ",

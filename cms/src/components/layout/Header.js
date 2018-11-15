@@ -1,18 +1,17 @@
 import React, { Component } from "react";
 import { COLOR_JBG_PURPLE } from "../../utils/Constants";
 import { withRouter } from "react-router";
-import PropTypes from "prop-types";
+import { getCurrentUserQuery } from "../../data/query";
+import { withApollo } from "react-apollo";
 
 const URL_WELCOME = "/welcome";
 
 class Header extends Component {
-    static propTypes = {
-        user: PropTypes.object.isRequired
-    };
-
     render() {
-        console.log(this.props.user);
-        const { user } = this.props;
+        const { getCurrentUser: user } = this.props.client.readQuery({
+            query: getCurrentUserQuery
+        });
+
         return (
             <div
                 style={{
@@ -90,4 +89,4 @@ class Header extends Component {
     }
 }
 
-export default withRouter(Header);
+export default withApollo(withRouter(Header));
