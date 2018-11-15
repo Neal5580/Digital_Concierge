@@ -36,7 +36,7 @@ module.exports = {
                     notEmpty: true
                 }
             },
-            has_touchscren: {
+            has_touchscreen: {
                 type: Sequelize.BOOLEAN,
                 allowNull: false,
                 validate: {
@@ -45,6 +45,13 @@ module.exports = {
             },
             number_of_users: {
                 type: Sequelize.INTEGER,
+                allowNull: false,
+                validate: {
+                    notEmpty: true
+                }
+            },
+            logo: {
+                type: Sequelize.STRING,
                 allowNull: false,
                 validate: {
                     notEmpty: true

@@ -33,11 +33,7 @@ module.exports = (sequelize, DataTypes) => {
                 defaultValue: true
             },
             avatar: {
-                type: DataTypes.STRING,
-                allowNull: false,
-                validate: {
-                    notEmpty: true
-                }
+                type: DataTypes.STRING
             }
         },
         {}

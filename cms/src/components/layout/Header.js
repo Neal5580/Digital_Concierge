@@ -77,7 +77,7 @@ class Header extends Component {
                                     style={{
                                         height: "50px"
                                     }}
-                                    src={user.avatar}
+                                    src={user.venue.logo}
                                     alt={`{user.name}_avatar`}
                                 />
                             </div>

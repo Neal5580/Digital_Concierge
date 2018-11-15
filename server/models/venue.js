@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
                 },
                 defaultValue: false
             },
-            has_touchscren: {
+            has_touchscreen: {
                 type: DataTypes.BOOLEAN,
                 allowNull: false,
                 validate: {
@@ -49,6 +49,9 @@ module.exports = (sequelize, DataTypes) => {
                     notEmpty: true
                 },
                 defaultValue: 5
+            },
+            logo: {
+                type: DataTypes.STRING
             }
         },
         {}

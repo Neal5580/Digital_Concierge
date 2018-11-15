@@ -6,16 +6,26 @@ export const getSelectedUserQuery = gql`
             id
             name
             email
-            has_parent_category
             active
-            has_tablet
-            has_touchscreen
+            avatar
             createdAt
             updatedAt
-            avatar
             role {
-                id
                 name
+                is_admin
+                permissions {
+                    id
+                    name
+                }
+            }
+            venue {
+                name
+                logo
+                number_of_users
+                has_parent_category
+                has_touchscreen
+                has_tablet
+                active
             }
         }
     }
@@ -27,16 +37,26 @@ export const getCurrentUserQuery = gql`
             id
             name
             email
-            has_parent_category
             active
-            has_tablet
-            has_touchscreen
             avatar
             createdAt
             updatedAt
             role {
-                id
                 name
+                is_admin
+                permissions {
+                    id
+                    name
+                }
+            }
+            venue {
+                name
+                logo
+                number_of_users
+                has_parent_category
+                has_touchscreen
+                has_tablet
+                active
             }
         }
     }

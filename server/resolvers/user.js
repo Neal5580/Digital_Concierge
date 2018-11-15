@@ -35,6 +35,10 @@ export default {
     User: {
         role: async user => {
             return await db.role.findById(user.roleId);
+        },
+
+        venue: async user => {
+            return await db.venue.findById(user.venueId);
         }
     }
 };

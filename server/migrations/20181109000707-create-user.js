@@ -37,11 +37,7 @@ module.exports = {
                 }
             },
             avatar: {
-                type: Sequelize.STRING,
-                allowNull: false,
-                validate: {
-                    notEmpty: true
-                }
+                type: Sequelize.STRING
             },
             createdAt: {
                 allowNull: false,
