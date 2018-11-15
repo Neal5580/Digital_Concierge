@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import { COLOR_JBG_PURPLE } from "../../utils/Constants";
 import { withRouter } from "react-router";
-import { getCurrentUserQuery } from "../../data/query";
+import { getCurrentUserQuery as query } from "../../data/query";
 import { withApollo } from "react-apollo";
 
 const URL_WELCOME = "/welcome";
 
 class Header extends Component {
     render() {
-        const { getCurrentUser: user } = this.props.client.readQuery({
-            query: getCurrentUserQuery
+        const { client, match } = this.props;
+        const { getCurrentUser: user } = client.readQuery({
+            query
         });
 
         return (
@@ -37,9 +38,7 @@ class Header extends Component {
                         marginLeft: "1.5vw"
                     }}
                 >
-                    {this.props.match.url === URL_WELCOME && (
-                        <p style={{}}>Welcome</p>
-                    )}
+                    {match.url === URL_WELCOME && <p style={{}}>Welcome</p>}
                 </div>
                 <div
                     style={{
@@ -52,7 +51,7 @@ class Header extends Component {
                         marginRight: "1.5vw"
                     }}
                 >
-                    {this.props.match.url === URL_WELCOME && (
+                    {match.url === URL_WELCOME && (
                         <div
                             style={{
                                 display: "flex",
