@@ -1,11 +1,25 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Login from "./auth/Login";
-import Welcome from "./home/Welcome";
 import Home from "./home/Home";
 import PrivateRoute from "./auth/PrivateRoute";
 import { isLoggedIn, logout } from "../auth/auth";
 import "./App.css";
+
+const routes = [
+    {
+        path: "/welcome",
+        component: Home
+    },
+    {
+        path: "/tablet",
+        component: Home
+    },
+    {
+        path: "/touchscreen",
+        component: Home
+    }
+];
 
 class App extends Component {
     constructor(props) {
@@ -45,7 +59,6 @@ class App extends Component {
                                     />
                                 )}
                             />
-
                             <Route
                                 path="/login"
                                 render={() => (
@@ -54,12 +67,13 @@ class App extends Component {
                                     />
                                 )}
                             />
-                            <PrivateRoute path="/welcome" component={Home} />
-                            <PrivateRoute path="/tablet" component={Home} />
-                            <PrivateRoute
-                                path="/touchscreen"
-                                component={Home}
-                            />
+                            {routes.map((route, index) => (
+                                <PrivateRoute
+                                    key={index}
+                                    path={route.path}
+                                    component={route.component}
+                                />
+                            ))}
                         </div>
                     </section>
                 </div>
