@@ -1,14 +1,19 @@
 "use strict";
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
 module.exports = {
     up: (queryInterface, Sequelize) => {
+        var hash = bcrypt.hashSync("neal1234", saltRounds);
+        console.log(hash);
+
         return queryInterface.bulkInsert(
             "users",
             [
                 {
                     name: "Yijie SHEN",
                     email: "nealshen@johnbatman.com.au",
-                    password: "neal1234",
+                    password: hash,
                     active: true,
                     roleId: 1,
                     venueId: 2
@@ -16,7 +21,7 @@ module.exports = {
                 {
                     name: "Holiday Inn",
                     email: "admin@holidayinn.com.au",
-                    password: "holiday",
+                    password: hash,
                     active: true,
                     roleId: 1,
                     venueId: 1

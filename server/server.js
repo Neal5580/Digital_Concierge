@@ -7,6 +7,7 @@ import expressJwt from "express-jwt";
 import resolvers from "./resolvers";
 import schemas from "./schemas";
 import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 
 const port = 3000;
 const jwtSecret = Buffer.from("Zn8Q5tyZ/G1MHltc4F/gTkVJMlrbKiZt", "base64");
@@ -51,10 +52,11 @@ app.post("/login", async (req, res) => {
         }
     });
 
-    if (!(user && user.password === password)) {
+    if (!bcrypt.compareSync(password, user.password)) {
         res.sendStatus(401);
         return;
     }
+
     const token = jwt.sign({ sub: user.id }, jwtSecret);
     res.send({ token });
 });
