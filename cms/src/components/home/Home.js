@@ -1,4 +1,4 @@
-import React, { Component, Suspense } from "react";
+import React, { Component, lazy, Suspense } from "react";
 import { Query } from "react-apollo";
 import { getCurrentUserQuery } from "../../data/query";
 import Loading from "../loading/Loading";
@@ -6,10 +6,10 @@ import Header from "../layout/Header";
 import Sidebar from "../layout/Sidebar";
 import PrivateRoute from "../auth/PrivateRoute";
 
-const Tablet = React.lazy(() => import("../tablet/Tablet"));
-const TabletList = React.lazy(() => import("../tablet/TabletList"));
-const Touchscreen = React.lazy(() => import("../touchscreen/Touchscreen"));
-const Welcome = React.lazy(() => import("./Welcome.js"));
+const Tablet = lazy(() => import("../tablet/Tablet"));
+const TabletList = lazy(() => import("../tablet/TabletList"));
+const Touchscreen = lazy(() => import("../touchscreen/Touchscreen"));
+const Welcome = lazy(() => import("./Welcome.js"));
 
 const routes = [
     {
