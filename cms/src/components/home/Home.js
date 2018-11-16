@@ -53,7 +53,7 @@ class Home extends Component {
         return (
             <Query query={getCurrentUserQuery} /*fetchPolicy="no-cache"*/>
                 {({ loading, error, data }) => {
-                    if (loading) return <Loading />;
+                    if (loading) return <Loading loadingData />;
                     if (error) return `Error! ${error.message}`;
                     console.log(data);
 

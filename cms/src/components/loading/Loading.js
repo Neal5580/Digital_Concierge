@@ -1,6 +1,6 @@
 import React from "react";
 import "./Loading.css";
-import { DotLoader } from "react-spinners";
+import { ClipLoader, DotLoader } from "react-spinners";
 import { COLOR_JBG_PURPLE } from "../../utils/Constants";
 
 class loading extends React.Component {
@@ -15,12 +15,21 @@ class loading extends React.Component {
             <div>
                 <div className="loading_container">
                     <div className="sweet-loading">
-                        <DotLoader
-                            sizeUnit={"px"}
-                            size={150}
-                            color={COLOR_JBG_PURPLE}
-                            loading={this.state.loading}
-                        />
+                        {this.props.loadingData ? (
+                            <ClipLoader
+                                sizeUnit={"px"}
+                                size={100}
+                                color={"rgb(38,56,140)"}
+                                loading={this.state.loading}
+                            />
+                        ) : (
+                            <DotLoader
+                                sizeUnit={"px"}
+                                size={150}
+                                color={COLOR_JBG_PURPLE}
+                                loading={this.state.loading}
+                            />
+                        )}
                     </div>
                 </div>
             </div>

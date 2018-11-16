@@ -1,9 +1,10 @@
-import React, { Component, Suspense, React } from "react";
+import React, { Component, Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Login from "./auth/Login";
 import PrivateRoute from "./auth/PrivateRoute";
 import { isLoggedIn, logout } from "../auth/auth";
 import "./App.css";
+import Loading from "./loading/Loading";
 
 const Home = lazy(() => import("./home/Home"));
 
@@ -68,7 +69,7 @@ class App extends Component {
                                     />
                                 )}
                             />
-                            <Suspense fallback={<div>Loading...</div>}>
+                            <Suspense fallback={<Loading />}>
                                 {routes.map((route, index) => (
                                     <PrivateRoute
                                         key={index}
