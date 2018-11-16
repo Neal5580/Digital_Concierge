@@ -1,14 +1,16 @@
-import React, { Component } from "react";
-import Header from "../layout/Header";
-import Sidebar from "../layout/Sidebar";
-import Tablet from "../tablet/Tablet";
-import TabletList from "../tablet/TabletList";
-import Touchscreen from "../touchscreen/Touchscreen";
-import PrivateRoute from "../auth/PrivateRoute";
-import Welcome from "./Welcome.js";
+import React, { Component, Suspense } from "react";
 import { Query } from "react-apollo";
 import { getCurrentUserQuery } from "../../data/query";
 import Loading from "../loading/Loading";
+import Header from "../layout/Header";
+import Sidebar from "../layout/Sidebar";
+import PrivateRoute from "../auth/PrivateRoute";
+
+const Tablet = React.lazy(() => import("../tablet/Tablet"));
+const TabletList = React.lazy(() => import("../tablet/TabletList"));
+const Touchscreen = React.lazy(() => import("../touchscreen/Touchscreen"));
+const Welcome = React.lazy(() => import("./Welcome.js"));
+
 const routes = [
     {
         path: "/welcome",
@@ -92,12 +94,14 @@ class Home extends Component {
                                 {routes.map(
                                     (route, index) =>
                                         route.main && (
-                                            <PrivateRoute
-                                                key={index}
-                                                path={route.path}
-                                                exact={route.exact}
-                                                component={route.main}
-                                            />
+                                            <Suspense fallback={<Loading />}>
+                                                <PrivateRoute
+                                                    key={index}
+                                                    path={route.path}
+                                                    exact={route.exact}
+                                                    component={route.main}
+                                                />
+                                            </Suspense>
                                         )
                                 )}
                             </div>
