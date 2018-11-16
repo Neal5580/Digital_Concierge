@@ -4,7 +4,12 @@ import { Link } from "react-router-dom";
 class Tablet extends Component {
     render() {
         return (
-            <div>
+            <div
+                style={{
+                    width: "100%",
+                    backgroundColor: "green"
+                }}
+            >
                 <h1>Tablet Homepage</h1>
                 <Link to="/tablet/list">List</Link>
             </div>

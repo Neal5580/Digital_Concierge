@@ -54,7 +54,7 @@ class App extends Component {
                                     />
                                 )}
                             />
-                            <PrivateRoute path="/welcome" component={Welcome} />
+                            <PrivateRoute path="/welcome" component={Home} />
                             <PrivateRoute path="/tablet" component={Home} />
                             <PrivateRoute
                                 path="/touchscreen"
