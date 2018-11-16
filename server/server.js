@@ -58,6 +58,7 @@ app.post("/login", async (req, res) => {
     }
 
     const token = jwt.sign({ sub: user.id }, jwtSecret);
+
     res.send({ token });
 });
 

@@ -7,6 +7,7 @@ import { COLOR_JBG_PURPLE } from "../../utils/Constants";
 import "./Welcome.css";
 import Button from "@material-ui/core/Button";
 import { isEmpty } from "lodash";
+import { Redirect } from "react-router";
 
 class Welcome extends Component {
     render() {
@@ -26,6 +27,26 @@ class Welcome extends Component {
                     console.log(data);
 
                     const { getCurrentUser: user } = data;
+                    const { has_tablet, has_touchscreen } = user.venue;
+
+                    if (has_tablet && !has_touchscreen)
+                        return (
+                            <Redirect
+                                to={{
+                                    pathname: "/tablet"
+                                }}
+                            />
+                        );
+
+                    if (!has_tablet && has_touchscreen)
+                        return (
+                            <Redirect
+                                to={{
+                                    pathname: "/touchscreen"
+                                }}
+                            />
+                        );
+
                     return (
                         <div>
                             <Header />
@@ -69,95 +90,81 @@ class Welcome extends Component {
                                             alignContent: "center"
                                         }}
                                     >
-                                        {!isEmpty(user) &&
-                                            user.venue.has_tablet && (
-                                                <Link
-                                                    to="/tablet"
-                                                    style={{
-                                                        textDecoration: "none",
-                                                        margin: "10px",
-                                                        backgroundColor: "white"
-                                                    }}
-                                                >
-                                                    <div className="welcome_page_selection_image_container">
-                                                        <img
-                                                            className="welcome_page_selection_image_container_image"
-                                                            src="https://s3-ap-southeast-2.amazonaws.com/digitalconcierge/cms_assets/welcome_page_tablet_small.png"
-                                                            alt="welcome_page_tablet_small"
-                                                        />
-                                                        <div className="welcome_page_selection_image_container_middle">
-                                                            <Button
-                                                                variant="contained"
-                                                                type="submit"
-                                                                color="primary"
-                                                                style={{
-                                                                    width:
-                                                                        "200px",
-                                                                    color:
-                                                                        "white",
-                                                                    fontSize:
-                                                                        "1.3em",
-                                                                    backgroundColor: COLOR_JBG_PURPLE
-                                                                }}
-                                                            >
-                                                                EDIT
-                                                            </Button>
-                                                        </div>
+                                        {!isEmpty(user) && has_tablet && (
+                                            <Link
+                                                to="/tablet"
+                                                style={{
+                                                    textDecoration: "none",
+                                                    margin: "10px",
+                                                    backgroundColor: "white"
+                                                }}
+                                            >
+                                                <div className="welcome_page_selection_image_container">
+                                                    <img
+                                                        className="welcome_page_selection_image_container_image"
+                                                        src="https://s3-ap-southeast-2.amazonaws.com/digitalconcierge/cms_assets/welcome_page_tablet_small.png"
+                                                        alt="welcome_page_tablet_small"
+                                                    />
+                                                    <div className="welcome_page_selection_image_container_middle">
+                                                        <Button
+                                                            variant="contained"
+                                                            type="submit"
+                                                            color="primary"
+                                                            style={{
+                                                                width: "200px",
+                                                                color: "white",
+                                                                fontSize:
+                                                                    "1.3em",
+                                                                backgroundColor: COLOR_JBG_PURPLE
+                                                            }}
+                                                        >
+                                                            EDIT
+                                                        </Button>
                                                     </div>
-                                                    <p
-                                                        style={
-                                                            SELECT_FONT_STYLE
-                                                        }
-                                                    >
-                                                        DIGITAL COMPENDIUM
-                                                    </p>
-                                                </Link>
-                                            )}
+                                                </div>
+                                                <p style={SELECT_FONT_STYLE}>
+                                                    DIGITAL COMPENDIUM
+                                                </p>
+                                            </Link>
+                                        )}
 
-                                        {!isEmpty(user) &&
-                                            user.venue.has_touchscreen && (
-                                                <Link
-                                                    to="/touchscreen"
-                                                    style={{
-                                                        textDecoration: "none",
-                                                        margin: "10px",
-                                                        backgroundColor: "white"
-                                                    }}
-                                                >
-                                                    <div className="welcome_page_selection_image_container">
-                                                        <img
-                                                            className="welcome_page_selection_image_container_image"
-                                                            src="https://s3-ap-southeast-2.amazonaws.com/digitalconcierge/cms_assets/welcome_page_touchscreen_small.png"
-                                                            alt="welcome_page_tablet_small"
-                                                        />
-                                                        <div className="welcome_page_selection_image_container_middle">
-                                                            <Button
-                                                                variant="contained"
-                                                                type="submit"
-                                                                color="primary"
-                                                                style={{
-                                                                    width:
-                                                                        "200px",
-                                                                    color:
-                                                                        "white",
-                                                                    fontSize:
-                                                                        "1.3em",
-                                                                    backgroundColor: COLOR_JBG_PURPLE
-                                                                }}
-                                                            >
-                                                                EDIT
-                                                            </Button>
-                                                        </div>
+                                        {!isEmpty(user) && has_touchscreen && (
+                                            <Link
+                                                to="/touchscreen"
+                                                style={{
+                                                    textDecoration: "none",
+                                                    margin: "10px",
+                                                    backgroundColor: "white"
+                                                }}
+                                            >
+                                                <div className="welcome_page_selection_image_container">
+                                                    <img
+                                                        className="welcome_page_selection_image_container_image"
+                                                        src="https://s3-ap-southeast-2.amazonaws.com/digitalconcierge/cms_assets/welcome_page_touchscreen_small.png"
+                                                        alt="welcome_page_tablet_small"
+                                                    />
+                                                    <div className="welcome_page_selection_image_container_middle">
+                                                        <Button
+                                                            variant="contained"
+                                                            type="submit"
+                                                            color="primary"
+                                                            style={{
+                                                                width: "200px",
+                                                                color: "white",
+                                                                fontSize:
+                                                                    "1.3em",
+                                                                backgroundColor: COLOR_JBG_PURPLE
+                                                            }}
+                                                        >
+                                                            EDIT
+                                                        </Button>
                                                     </div>
-                                                    <p
-                                                        style={
-                                                            SELECT_FONT_STYLE
-                                                        }
-                                                    >
-                                                        DIGITAL CONCIERGE
-                                                    </p>
-                                                </Link>
-                                            )}
+                                                </div>
+                                                <p style={SELECT_FONT_STYLE}>
+                                                    DIGITAL CONCIERGE
+                                                </p>
+                                            </Link>
+                                        )}
                                     </div>
                                 </div>
                             </div>

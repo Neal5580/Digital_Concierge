@@ -5,6 +5,8 @@ import Tablet from "../tablet/Tablet";
 import TabletList from "../tablet/TabletList";
 import Touchscreen from "../touchscreen/Touchscreen";
 import PrivateRoute from "../auth/PrivateRoute";
+import { Query } from "react-apollo";
+import { getCurrentUserQuery } from "../../data/query";
 
 const routes = [
     {
