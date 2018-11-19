@@ -8,7 +8,7 @@ export function getAccessToken() {
 }
 
 export async function login(email, password) {
-    const response = await fetch("http://localhost:3000/login", {
+    const response = await fetch("http://localhost:3050/api/login", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ email, password })

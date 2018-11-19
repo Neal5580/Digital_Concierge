@@ -4,8 +4,7 @@ const saltRounds = 10;
 
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        var hash = bcrypt.hashSync("neal1234", saltRounds);
-        console.log(hash);
+        const hash = bcrypt.hashSync("admin", saltRounds);
 
         return queryInterface.bulkInsert(
             "users",
@@ -25,6 +24,14 @@ module.exports = {
                     active: true,
                     roleId: 1,
                     venueId: 1
+                },
+                {
+                    name: "Neal Shen",
+                    email: "admin@admin.com.au",
+                    password: hash,
+                    active: true,
+                    roleId: 1,
+                    venueId: 2
                 }
             ],
             {}

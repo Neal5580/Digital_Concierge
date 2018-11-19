@@ -21,7 +21,7 @@ const client = new ApolloClient({
     cache: new InMemoryCache(),
     link: authLink.concat(
         createUploadLink({
-            uri: "http://localhost:3000/graphql",
+            uri: "http://localhost:3050/api/graphql",
             cretentials: "include"
         })
     )
