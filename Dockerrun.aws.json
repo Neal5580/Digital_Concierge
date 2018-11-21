@@ -4,7 +4,7 @@
         {
             "name": "cms",
             "image": "nealshen/dc-cms",
-            "hostname": "client",
+            "hostname": "cms",
             "essential": false,
             "memory": 128
         },
