@@ -4,12 +4,12 @@ services:
 
 #Building image for testing
 before_install:
-  #- docker build -t nealshen/react-test -f ./cms/Dockerfile.dev ./cms
+  - docker build -t nealshen/react-test -f ./cms/Dockerfile.dev ./cms
 
 #Executing testing script
 #"-- --coverage" means that test script eventually ends with either zero or without zero
 script:
-  #- docker run nealshen/react-test npm test -- --coverage
+  - docker run nealshen/react-test npm test -- --coverage
 
 after_success:
   #Build docker image
