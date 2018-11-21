@@ -1,0 +1,39 @@
+sudo: required
+services:
+  - docker
+
+#Building image for testing
+before_install:
+  - docker build -t nealshen/react-test -f ./cms/Dockerfile.dev ./cms
+
+#Executing testing script
+#"-- --coverage" means that test script eventually ends with either zero or without zero
+script:
+  - docker run nealshen/react-test npm test -- --coverage
+
+after_success:
+  #Build docker image
+  - docker build -t nealshen/dc-cms ./cms
+  - docker build -t nealshen/dc-nginx ./nginx
+  - docker build -t nealshen/dc-server ./server
+ 
+  #Sign in docker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+  #Take those images and push them to docker hub
+  - docker push nealshen/dc-cms
+  - docker push nealshen/dc-nginx
+  - docker push nealshen/dc-server
+ 
+deploy:
+  provider: elasticbeanstalk
+  region: ap-southeast-2
+  app: Digital_Concierge
+  env: DigitalConcierge-env 
+  bucket_name: elasticbeanstalk-ap-southeast-2-626158641982
+  bucket_path: dc-docker
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: $AWS_SECRET_KEY

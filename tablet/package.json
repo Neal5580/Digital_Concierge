@@ -2,7 +2,7 @@
   "name": "tablet",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
+   "dependencies": {
     "apollo-boost": "^0.1.20",
     "apollo-link-context": "^1.0.9",
     "apollo-upload-client": "^9.1.0",
