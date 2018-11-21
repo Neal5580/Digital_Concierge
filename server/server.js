@@ -62,7 +62,7 @@ app.post("/login", async (req, res) => {
     res.send({ token });
 });
 
-db.sequelize
+/*db.sequelize
     .authenticate()
     .then(() => {
         console.log("MySql Connection has been established successfully.");
@@ -72,4 +72,7 @@ db.sequelize
     })
     .catch(err => {
         console.error("Unable to connect to the database:", err);
-    });
+    });*/
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+});
