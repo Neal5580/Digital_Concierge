@@ -22,7 +22,7 @@ app.use(
     })
 );
 
-const graphqlServer = new ApolloServer({
+/*const graphqlServer = new ApolloServer({
     typeDefs: schemas,
     resolvers,
     context: async ({ req }) =>
@@ -30,7 +30,7 @@ const graphqlServer = new ApolloServer({
             user: await db.user.findById(req.user.sub)
         }
 });
-graphqlServer.applyMiddleware({ app });
+graphqlServer.applyMiddleware({ app });*/
 
 /**
  * REST API TEST
@@ -43,7 +43,7 @@ app.get("/", (req, res) => {
     res.send(JSON.stringify(data, null, 2));
 });
 
-app.post("/login", async (req, res) => {
+/*app.post("/login", async (req, res) => {
     const { email, password } = req.body;
 
     const user = await db.user.findOne({
@@ -60,7 +60,7 @@ app.post("/login", async (req, res) => {
     const token = jwt.sign({ sub: user.id }, jwtSecret);
 
     res.send({ token });
-});
+});*/
 
 /*db.sequelize
     .authenticate()
