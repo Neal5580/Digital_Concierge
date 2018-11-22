@@ -25,7 +25,7 @@ after_success:
   - docker push nealshen/dc-cms
   - docker push nealshen/dc-nginx
   - docker push nealshen/dc-server
-   - docker push nealshen/dc-tablet
+  - docker push nealshen/dc-tablet
 
 deploy:
   provider: elasticbeanstalk
