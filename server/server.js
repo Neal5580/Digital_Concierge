@@ -11,6 +11,7 @@ import bcrypt from "bcrypt";
 
 const port = 3000;
 const jwtSecret = Buffer.from("Zn8Q5tyZ/G1MHltc4F/gTkVJMlrbKiZt", "base64");
+console.log("Hello");
 
 const app = express();
 app.use(
@@ -21,6 +22,7 @@ app.use(
         credentialsRequired: false
     })
 );
+console.log("Hello1");
 
 /*const graphqlServer = new ApolloServer({
     typeDefs: schemas,
@@ -42,6 +44,7 @@ app.get("/", (req, res) => {
     };
     res.send(JSON.stringify(data, null, 2));
 });
+console.log("Hello2");
 
 /*app.post("/login", async (req, res) => {
     const { email, password } = req.body;
@@ -76,3 +79,4 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
+console.log("Hello3");
