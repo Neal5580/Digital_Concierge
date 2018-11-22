@@ -24,7 +24,7 @@ app.use(
 );
 console.log("Hello1");
 
-/*const graphqlServer = new ApolloServer({
+const graphqlServer = new ApolloServer({
     typeDefs: schemas,
     resolvers,
     context: async ({ req }) =>
@@ -32,7 +32,7 @@ console.log("Hello1");
             user: await db.user.findById(req.user.sub)
         }
 });
-graphqlServer.applyMiddleware({ app });*/
+graphqlServer.applyMiddleware({ app });
 
 /**
  * REST API TEST
@@ -46,7 +46,7 @@ app.get("/", (req, res) => {
 });
 console.log("Hello2");
 
-/*app.post("/login", async (req, res) => {
+app.post("/login", async (req, res) => {
     const { email, password } = req.body;
 
     const user = await db.user.findOne({
@@ -63,9 +63,9 @@ console.log("Hello2");
     const token = jwt.sign({ sub: user.id }, jwtSecret);
 
     res.send({ token });
-});*/
+});
 
-/*db.sequelize
+db.sequelize
     .authenticate()
     .then(() => {
         console.log("MySql Connection has been established successfully.");
@@ -75,8 +75,4 @@ console.log("Hello2");
     })
     .catch(err => {
         console.error("Unable to connect to the database:", err);
-    });*/
-app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
-});
-console.log("Hello3");
+    });
