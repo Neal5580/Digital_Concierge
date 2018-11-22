@@ -21,11 +21,11 @@ services:
     volumes:
       - /app/node_modules
       - ./cms:/app
-  #tablet:
-  #  build: 
-  #    context: ./tablet/
-  #   dockerfile: Dockerfile.dev
-  #  volumes:
-  #    - /app/node_modules
-  #    - ./tablet:/app
+  tablet:
+    build: 
+      context: ./tablet/
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - ./tablet:/app
    
