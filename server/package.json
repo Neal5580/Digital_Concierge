@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx babel-node --presets env server.js"
+    "build": "npx babel-node --presets env server.js",
+    "serve": "nodemon --exec babel-node server.js"
   },
   "keywords": [],
   "author": "",
