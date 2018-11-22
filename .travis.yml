@@ -16,7 +16,8 @@ after_success:
   - docker build -t nealshen/dc-cms ./cms
   - docker build -t nealshen/dc-nginx ./nginx
   - docker build -t nealshen/dc-server ./server
- 
+  - docker build -t nealshen/dc-tablet ./tablet
+
   #Sign in docker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
@@ -24,7 +25,8 @@ after_success:
   - docker push nealshen/dc-cms
   - docker push nealshen/dc-nginx
   - docker push nealshen/dc-server
- 
+   - docker push nealshen/dc-tablet
+
 deploy:
   provider: elasticbeanstalk
   region: ap-southeast-2

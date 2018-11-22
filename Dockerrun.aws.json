@@ -16,6 +16,13 @@
             "memory": 128
         },
         {
+            "name": "tablet",
+            "image": "nealshen/dc-tablet",
+            "hostname": "tablet",
+            "essential": false,
+            "memory": 128
+        },
+        {
             "name": "nginx",
             "image": "nealshen/dc-nginx",
             "hostname": "nginx",
@@ -26,7 +33,7 @@
                     "containerPort": 80
                 }
             ],
-            "links": ["cms", "server"],
+            "links": ["cms", "server", "tablet"],
             "memory": 128
         }
     ]
