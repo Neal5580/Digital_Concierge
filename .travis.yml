@@ -14,13 +14,13 @@ after_success:
   - docker build -t nealshen/dc-nginx ./nginx
   - docker build -t nealshen/dc-server ./server
   - docker build -t nealshen/dc-tablet ./tablet
-
+  - docker build -t nealshen/dc-touchscreen ./touchscreen
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-
   - docker push nealshen/dc-cms
   - docker push nealshen/dc-nginx
   - docker push nealshen/dc-server
   - docker push nealshen/dc-tablet
+  - docker push nealshen/dc-touchscreen
 
 deploy:
   provider: elasticbeanstalk

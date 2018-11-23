@@ -28,3 +28,10 @@ services:
     volumes:
       - /app/node_modules
       - ./tablet:/app
+  touchscreen:
+    build: 
+      context: ./touchscreen/
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - ./touchscreen:/app

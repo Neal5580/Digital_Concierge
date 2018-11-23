@@ -23,6 +23,13 @@
             "memory": 128
         },
         {
+            "name": "touchscreen",
+            "image": "nealshen/dc-touchscreen",
+            "hostname": "touchscreen",
+            "essential": false,
+            "memory": 128
+        },
+        {
             "name": "nginx",
             "image": "nealshen/dc-nginx",
             "hostname": "nginx",
