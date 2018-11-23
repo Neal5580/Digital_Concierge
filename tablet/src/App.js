@@ -21,6 +21,10 @@ class App extends Component {
                                 path="/"
                                 render={() => <h1>TABLET HOME PAGE 123</h1>}
                             />
+                            <Route
+                                path="/test"
+                                render={() => <h1>TABLET HOME PAGE TEST</h1>}
+                            />
                         </div>
                     </section>
                 </div>
