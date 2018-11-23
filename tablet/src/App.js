@@ -12,7 +12,7 @@ class App extends Component {
 
     render() {
         return (
-            <Router ref={router => (this.router = router)} basename={"tablet"}>
+            <Router ref={router => (this.router = router)}>
                 <div>
                     123
                     <section>
