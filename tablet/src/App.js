@@ -12,13 +12,14 @@ class App extends Component {
 
     render() {
         return (
-            <Router ref={router => (this.router = router)}>
+            <Router ref={router => (this.router = router)} basename={"tablet"}>
                 <div>
                     123
                     <section>
                         <div>
                             <Route
                                 path="/"
+                                exact
                                 render={() => <h1>TABLET HOME PAGE 123</h1>}
                             />
                             <Route
