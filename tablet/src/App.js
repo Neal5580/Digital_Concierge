@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
     componentDidMount() {
-        fetch("http://localhost:3000/")
+        fetch("/api/")
             .then(response => response.json())
             .then(data => console.log(data));
     }
