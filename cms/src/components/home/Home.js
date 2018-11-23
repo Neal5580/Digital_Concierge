@@ -19,28 +19,28 @@ const routes = [
         main: Welcome
     },
     {
-        path: "/tablet",
+        path: "/tablet_cms",
         exact: true,
         sidebar: Sidebar,
         header: Header,
         main: Tablet
     },
     {
-        path: "/tablet/home",
+        path: "/tablet_cms/home",
         exact: false,
         sidebar: Sidebar,
         header: Header,
         main: Tablet
     },
     {
-        path: "/tablet/list",
+        path: "/tablet_cms/list",
         exact: false,
         sidebar: Sidebar,
         header: Header,
         main: TabletList
     },
     {
-        path: "/touchscreen",
+        path: "/touchscreen_cms",
         exact: true,
         sidebar: Sidebar,
         header: Header,

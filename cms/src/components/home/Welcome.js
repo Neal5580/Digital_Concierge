@@ -84,7 +84,7 @@ class Welcome extends Component {
                     >
                         {!isEmpty(user) && has_tablet && (
                             <Link
-                                to="/tablet"
+                                to="/tablet_cms"
                                 style={{
                                     textDecoration: "none",
                                     margin: "10px",
@@ -121,7 +121,7 @@ class Welcome extends Component {
 
                         {!isEmpty(user) && has_touchscreen && (
                             <Link
-                                to="/touchscreen"
+                                to="/touchscreen_cms"
                                 style={{
                                     textDecoration: "none",
                                     margin: "10px",

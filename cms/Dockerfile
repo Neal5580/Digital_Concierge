@@ -5,8 +5,6 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-#Copy the react build folder into nginx hosting folder
-#And listen port 4000
 FROM nginx
 EXPOSE 4000
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf

@@ -11,7 +11,7 @@ class Tablet extends Component {
                 }}
             >
                 <h1>Tablet Homepage</h1>
-                <Link to="/tablet/list">List</Link>
+                <Link to="/tablet_cms/list">List</Link>
             </div>
         );
     }

@@ -1,27 +1,22 @@
 sudo: required
+
 services:
   - docker
 
-#Building image for testing
 before_install:
   - docker build -t nealshen/react-test -f ./cms/Dockerfile.dev ./cms
 
-#Executing testing script
-#"-- --coverage" means that test script eventually ends with either zero or without zero
 script:
   - docker run nealshen/react-test npm test -- --coverage
 
 after_success:
-  #Build docker image
   - docker build -t nealshen/dc-cms ./cms
   - docker build -t nealshen/dc-nginx ./nginx
   - docker build -t nealshen/dc-server ./server
   - docker build -t nealshen/dc-tablet ./tablet
 
-  #Sign in docker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
-  #Take those images and push them to docker hub
   - docker push nealshen/dc-cms
   - docker push nealshen/dc-nginx
   - docker push nealshen/dc-server

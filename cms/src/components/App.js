@@ -14,11 +14,11 @@ const routes = [
         component: Home
     },
     {
-        path: "/tablet",
+        path: "/tablet_cms",
         component: Home
     },
     {
-        path: "/touchscreen",
+        path: "/touchscreen_cms",
         component: Home
     }
 ];
