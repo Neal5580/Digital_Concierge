@@ -40,7 +40,7 @@
                     "containerPort": 80
                 }
             ],
-            "links": ["cms", "server", "tablet"],
+            "links": ["cms", "server", "tablet", "touchscreen"],
             "memory": 128
         }
     ]
