@@ -2,6 +2,13 @@
     "AWSEBDockerrunVersion": 2,
     "containerDefinitions": [
         {
+            "name": "touchscreen",
+            "image": "nealshen/dc-touchscreen",
+            "hostname": "touchscreen",
+            "essential": false,
+            "memory": 128
+        },
+        {
             "name": "cms",
             "image": "nealshen/dc-cms",
             "hostname": "cms",
@@ -19,13 +26,6 @@
             "name": "tablet",
             "image": "nealshen/dc-tablet",
             "hostname": "tablet",
-            "essential": false,
-            "memory": 128
-        },
-        {
-            "name": "touchscreen",
-            "image": "nealshen/dc-touchscreen",
-            "hostname": "touchscreen",
             "essential": false,
             "memory": 128
         },
